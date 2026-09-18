@@ -124,7 +124,7 @@ cofoDestroy retorna 0 tanto para o caso de cofo não criado/destruído quanto pa
 - Editor utilizado: Neovim
 - - Os arquivos foram compilados para o sistema operacional Arch linux(Omarchy) com gcc (GCC) 16.2.1 20260810, caso não rode:
 ```bash
-gcc -o ./build/cofo main.c cofo.c cofo.h main.c
+gcc -o ./build/cofo main.c cofo.c
 
 ./build/cofo
 ```
