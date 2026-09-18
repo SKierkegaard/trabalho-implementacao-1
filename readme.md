@@ -129,4 +129,4 @@ gcc -o ./build/cofo main.c cofo.c cofo.h main.c
 ./build/cofo
 ```
 
-O trabalho está disponível no meu github: (trabalho-implementacao-1)[https://github.com/SKierkegaard/trabalho-implementacao-1]
+O trabalho está disponível no meu github: [trabalho-implementacao-1](https://github.com/SKierkegaard/trabalho-implementacao-1)
