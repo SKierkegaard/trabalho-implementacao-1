@@ -4,14 +4,12 @@
 #define TAM_MAX 100
 
 typedef struct {
-    int lista[TAM_MAX];
-    int tamanho;
+    int *list;
+    int length;
+    int capacity;
 } Cofo;
 
-void cofoCriar(Cofo *cofo);
-int cofoInserir(Cofo *cofo, int valor);
-int cofoRemover(Cofo *cofo, int valor);
-int cofoConsultar(Cofo *cofo, int valor);
-int cofoDestruir(Cofo *cofo);
+int cofoCreate(Cofo *cofo, int len);
+int cofoInsert(Cofo *cofo, int key);
 
 #endif // !COFO_H

@@ -1,51 +1,22 @@
 #include "cofo.h"
 #include <stdlib.h>
 
-void cofoCriar(Cofo *cofo) {
-    cofo->tamanho = 0;
-}
+int cofoCreate(Cofo *cofo, int len) {
+    if (cofo->list != NULL) {
+        free(cofo->list);
+        cofo->list = NULL;
+    }
 
-int cofoInserir(Cofo *cofo, int valor) {
-    if (cofo->tamanho < TAM_MAX) {
-        cofo->lista[cofo->tamanho] = valor;
-        cofo->tamanho++;
+    if (len > 0) {
+        cofo->list = malloc(sizeof(int) * len);
+        if (cofo->list == NULL) {
+            return 0;
+        }
 
+        cofo->length = 0;
+        cofo->capacity = len;
         return 1;
     }
 
     return 0;
-}
-
-int cofoRemover(Cofo *cofo, int valor) {
-    for (int i = 0; i < cofo->tamanho; i++) {
-        if (cofo->lista[i] == valor) {
-            for (int j = i; j < cofo->tamanho - 1; j++) {
-                cofo->lista[j] = cofo->lista[j + 1];
-            }
-
-            cofo->tamanho--;
-            return 1;
-        }
-    }
-
-    return 0;
-}
-
-int cofoConsultar(Cofo *cofo, int valor) {
-    for (int i = 0; i < cofo->tamanho; i++) {
-        if (cofo->lista[i] == valor) {
-            return 1;
-        }
-    }
-
-    return 0;
-}
-
-int cofoDestruir(Cofo *cofo) {
-    if (cofo->tamanho == 0) {
-        cofo->tamanho = -1;
-        return 1;
-    }
-
-        return 0;
 }

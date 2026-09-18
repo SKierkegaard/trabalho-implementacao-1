@@ -1,21 +1,40 @@
-O trabalho  deve ser um arquivo comprimido contendo (arquivo readme com o nome do ambiente onde o programa executa, arquivo fonte, executável do
-programa).
+# API
 
-O trabalho deve ser apresentado na data de entrega
-Implemente o TAD Cofo de Inteiros   e o utilize para fazer um programa com os seguintes requisitos (obrigatório
-utilizar a mesma API):
-- Implemente as seguintes operações:
----- criar um cofo
----- Inserir um inteiro no cofo
----- Remover um inteiro do cofo
----- Consultar um cofo
--- destruir o cofo se estiver vazio
-Importante: dentro do arquivo cofo.c é proibido printf e scanf ou qualquer coisa similar. 
+## int cofoCreate(Cofo *cofo, int len);
 
-O trabalho é individual.
+- Assume-se como premissa que Cofo é zerada antes da primeira chamada de cofoCreate.
+> ex: Cofo cofo = {0};
 
-Roteiro para teste:
-1 - Crie um cofo
-2 - Insira tres elementos no cofo
-3- Consulte um dos elementos no cofo
-4 - Remova o segundo elemento inserido no cofo
+```c
+int cofoCreate(Cofo *cofo, int len) {
+    if (cofo->list != NULL) {
+        free(cofo->list);
+        cofo->list = NULL;
+    }
+
+    if (len > 0) {
+        cofo->list = malloc(sizeof(int) * len);
+        if (cofo->list == NULL) {
+            return 0;
+        }
+
+        cofo->length = 0;
+        cofo->capacity = len;
+        return 1;
+    }
+
+    return 0;
+}
+```
+
+> Como Cofo foi inicializado com todos os campos zerados, free(cofo->list) não é *undefined behavior*, além disso, evita que haja vazamento de memória se cofoCreate for chamado duas vezes para um mesmo cofo.
+>
+> "cofo->list = NULL" evita o seguinte cenário:
+
+```c 
+Cofo cofo = {0};
+cofoCreate(&cofo, 10); // sucesso
+cofoCreate(&cofo, -5);
+```
+
+> A memória é liberada, porém len > 0 é falso e a função retorna 0, mas cofo->list continua apontando para o endereço antigo que lhe pertence mais.
