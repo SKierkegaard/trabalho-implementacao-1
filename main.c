@@ -2,44 +2,35 @@
 #include <stdio.h>
 
 int main() {
-    Cofo cofo = {0};
-    cofoCreate(&cofo, 3);
+    Cofo *cofo = cofoCreate(3);
+    if (cofo == NULL) {
+        printf("Não foi possível criar o cofo!\n");
 
-    if (cofoInsert(&cofo, 20)) {
-        printf("Valor adicionado ao cofo!\n");
-    } else {
-        printf("Não foi possível adicionar o valor ao cofo!\n");
+        return 1;
     }
 
-    if (cofoInsert(&cofo, 2)) {
-        printf("Valor adicionado ao cofo!\n");
+    cofoInsert(cofo, 20);
+    cofoInsert(cofo, 2);
+    cofoInsert(cofo, 8);
+
+    if (cofoConsult(cofo, 8)) {
+        printf("Elemento encontrado!\n");
     } else {
-        printf("Não foi possível adicionar o valor ao cofo!\n");
+        printf("Elemento não encontrado!\n");
     }
 
-    if (cofoInsert(&cofo, 8)) {
-        printf("Valor adicionado ao cofo!\n");
-    } else {
-        printf("Não foi possível adicionar o valor ao cofo!\n");
+    cofoRemove(cofo, 2);
+    if (!cofoDestroy(cofo)) {
+        printf("Não foi possível destruir o cofo: o cofo não está vazio.\n");
     }
 
-    if (cofoConsult(&cofo, 8)) {
-        printf("Valor encontrado!\n");
-    } else {
-        printf("Valor não encontrado!\n");
-    }
+    cofoRemove(cofo, 20);
+    cofoRemove(cofo, 8);
 
-    if (cofoRemove(&cofo, 2)) {
-        printf("Valor removido com sucesso!\n");
-    } else {
-        printf("Não foi possível remover o valor!\n");
-    }
-
-    if (cofoDestroy(&cofo)) {
-        printf("Cofo destruído com sucesso\n");
-    } else {
-        printf("Não foi possível destuir o cofo!\n");
-    }
+    if (cofoDestroy(cofo)) {
+        printf("Cofo destruído com sucesso!\n");
+    } 
+    cofo = NULL;
 
     return 0;
 }

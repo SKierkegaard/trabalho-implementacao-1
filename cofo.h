@@ -1,13 +1,9 @@
 #ifndef COFO_H
 #define COFO_H
 
-typedef struct {
-    int *list;
-    int length;
-    int capacity;
-} Cofo;
+typedef struct Cofo Cofo;
 
-int cofoCreate(Cofo *cofo, int len);
+Cofo *cofoCreate(int len);
 int cofoInsert(Cofo *cofo, int value);
 int cofoRemove(Cofo *cofo, int value);
 int cofoConsult(Cofo *cofo, int value);
