@@ -60,3 +60,15 @@ int cofoConsult(Cofo *cofo, int value) {
 
     return 0;
 }
+
+int cofoDestroy(Cofo *cofo) {
+    if (cofo->list != NULL && cofo->length == 0) {
+        free(cofo->list);
+        cofo->list = NULL;
+        cofo->capacity = 0;
+
+        return 1;
+    }
+
+    return 0;
+}

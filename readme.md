@@ -98,3 +98,27 @@ int cofoConsult(Cofo *cofo, int value) {
 ```
 
 cofoConsult retorna 0 tanto para cofo não criado/destruído quanto para item não encontrado. Se a lista é válida, a função percorre a lista e retorna 1 quando encontra um valor igual ao que foi passado como parâmetro.
+
+## 5 - cofoDestroy
+
+```c
+int cofoDestroy(Cofo *cofo) {
+    if (cofo->list != NULL && cofo->length == 0) {
+        free(cofo->list);
+        cofo->list = NULL;
+        cofo->capacity = 0;
+
+        return 1;
+    }
+
+    return 0;
+}
+```
+
+cofoDestroy retorna 0 tanto para o caso de cofo não criado/destruído quanto para cofo não vazio. Se o cofo estiver vazio, a memória é liberada e os campos de cofo são 'resetados' e retorna 1.
+
+## Ambiente de execução
+
+- Sistema operacional: Arch Linux(Omarchy)
+- Compilador: gcc (GCC) 16.2.1 20260810
+- Editor utilizado: Neovim
