@@ -11,5 +11,8 @@ typedef struct {
 
 int cofoCreate(Cofo *cofo, int len);
 int cofoInsert(Cofo *cofo, int value);
+int cofoRemove(Cofo *cofo, int value);
+int cofoConsult(Cofo *cofo, int value);
+int cofoDestroy(Cofo *cofo);
 
-#endif // !COFO_H
+#endif
