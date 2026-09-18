@@ -8,19 +8,19 @@ int main() {
     if (cofoInsert(&cofo, 20)) {
         printf("Valor adicionado ao cofo!\n");
     } else {
-        printf("Não foi possível adionar o valor ao cofo!\n");
+        printf("Não foi possível adicionar o valor ao cofo!\n");
     }
 
     if (cofoInsert(&cofo, 2)) {
         printf("Valor adicionado ao cofo!\n");
     } else {
-        printf("Não foi possível adionar o valor ao cofo!\n");
+        printf("Não foi possível adicionar o valor ao cofo!\n");
     }
 
     if (cofoInsert(&cofo, 8)) {
         printf("Valor adicionado ao cofo!\n");
     } else {
-        printf("Não foi possível adionar o valor ao cofo!\n");
+        printf("Não foi possível adicionar o valor ao cofo!\n");
     }
 
     if (cofoConsult(&cofo, 8)) {
@@ -33,6 +33,12 @@ int main() {
         printf("Valor removido com sucesso!\n");
     } else {
         printf("Não foi possível remover o valor!\n");
+    }
+
+    if (cofoDestroy(&cofo)) {
+        printf("Cofo destruído com sucesso\n");
+    } else {
+        printf("Não foi possível destuir o cofo!\n");
     }
 
     return 0;
