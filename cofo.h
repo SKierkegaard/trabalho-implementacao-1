@@ -10,6 +10,6 @@ typedef struct {
 } Cofo;
 
 int cofoCreate(Cofo *cofo, int len);
-int cofoInsert(Cofo *cofo, int key);
+int cofoInsert(Cofo *cofo, int value);
 
 #endif // !COFO_H

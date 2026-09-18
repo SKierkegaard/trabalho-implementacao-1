@@ -20,3 +20,14 @@ int cofoCreate(Cofo *cofo, int len) {
 
     return 0;
 }
+
+int cofoInsert(Cofo *cofo, int value) {
+    if (cofo->list != NULL && cofo->length < cofo->capacity) {
+        cofo->list[cofo->length] = value;
+        cofo->length++;
+
+        return 1;
+    }
+
+    return 0;
+}
