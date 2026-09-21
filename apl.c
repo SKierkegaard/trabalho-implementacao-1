@@ -1,36 +1,93 @@
-#include "cofo.h"
 #include <stdio.h>
+#include "cofo.h"
+
+void cleanBuffer() {
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
+}
 
 int main() {
-    Cofo *cofo = cofoCreate(3);
-    if (cofo == NULL) {
-        printf("Não foi possível criar o cofo!\n");
+    int capacity;
+    printf("Digite a capacidade do Cofo: ");
+    scanf("%d", &capacity);
+    cleanBuffer();
 
+    Cofo *cofo = cofoCreate(capacity);
+    if (cofo == NULL) {
+        printf("Não foi possível criar o Cofo!");
         return 1;
     }
 
-    cofoInsert(cofo, 20);
-    cofoInsert(cofo, 2);
-    cofoInsert(cofo, 8);
+    int option;
+    int value;
+    int running = 1;
 
-    if (cofoConsult(cofo, 8)) {
-        printf("Elemento encontrado!\n");
-    } else {
-        printf("Elemento não encontrado!\n");
+    while (running) {
+        printf("\n----- Menu Cofo -----\n");
+        printf("1 - Inserir valor\n");
+        printf("2 - Remover valor\n");
+        printf("3 - Consultar valor\n");
+        printf("4 - Destuir Cofo(Sair)\n");
+        printf("> ");
+
+        if (scanf("%d", &option) != 1) {
+            printf("Entrada inválida.");
+            cleanBuffer();
+            continue;
+        }
+        cleanBuffer();
+
+        switch (option) {
+            case 1:
+                printf("\nDigite o valor a inserir: ");
+                scanf("%d", &value);
+                cleanBuffer();
+
+                if (cofoInsert(cofo, value)) {
+                    printf("Valor inserido com sucesso!\n");
+                } else {
+                    printf("Não foi possível inserir o valor(cofo cheio ou valor inválido)!\n");
+                }
+                break;
+
+            case 2:
+                printf("\nDigite o valor a remover: ");
+                scanf("%d", &value);
+                cleanBuffer();
+
+                if (cofoRemove(cofo, value)) {
+                    printf("Valor removido com sucesso!\n");
+                } else {
+                    printf("Valor não encontrado!\n");
+                }
+                break;
+
+            case 3:
+                printf("\nDigite o valor a consultar: ");
+                scanf("%d", &value);
+                cleanBuffer();
+
+                if (cofoConsult(cofo, value)) {
+                    printf("Valor encontrado!\n");
+                } else {
+                    printf("Valor não encontrado\n");
+                }
+                break;
+
+            case 4:
+                if (cofoDestroy(cofo)) {
+                    printf("Cofo destruído com sucesso!\n");
+                    cofo = NULL;
+                    running = 0;
+                } else {
+                    printf("Não foi possível destruir o Cofo! O Cofo não está vazio ou já foi destuído.\n");
+                }
+                break;
+
+            default:
+                printf("Opção inválida\n");
+        }
     }
-
-    cofoRemove(cofo, 2);
-    if (!cofoDestroy(cofo)) {
-        printf("Não foi possível destruir o cofo: o cofo não está vazio.\n");
-    }
-
-    cofoRemove(cofo, 20);
-    cofoRemove(cofo, 8);
-
-    if (cofoDestroy(cofo)) {
-        printf("Cofo destruído com sucesso!\n");
-    } 
-    cofo = NULL;
 
     return 0;
 }

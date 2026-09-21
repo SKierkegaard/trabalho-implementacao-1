@@ -40,15 +40,10 @@ gcc -o ./build/apl apl.c cofo.c
 
 - VSCode:
 1. Abra a pasta do projeto no VSCode (File > Open Folder).
-2. Ctrl+Shift+B - roda a task de build (compila main.c + cofo.c).
+2. Ctrl+Shift+B - roda a task de build (compila apl.c + cofo.c).
 3. Abra o terminal integrado (Ctrl+`) e rode:
 ```bash
-./build/cofo
+./build/apl
 ```
 
-> *Caso não rode na sua máquina, recompile:*
-```bash
-gcc -o ./build/apl apl.c cofo.c
-```
-
-O trabalho está disponível no meu github: [trabalho-implementacao-1](https://github.com/SKierkegaard/trabalho-implementacao-1)
+*O trabalho está disponível no meu github:* [trabalho-implementacao-1](https://github.com/SKierkegaard/trabalho-implementacao-1)
