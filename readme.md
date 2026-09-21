@@ -17,7 +17,7 @@ Caso o executável não rode no ambiente de correção, recompile com:
 
 ```bash
 gcc -o ./build/apl apl.c cofo.c
-./build/cofo
+./build/apl
 ```
 
 ## Arquivos fonte
@@ -30,7 +30,7 @@ gcc -o ./build/apl apl.c cofo.c
 
 - Terminal:
 ```bash
-./build/cofo
+./build/apl
 ```
 
 > *Caso não rode na sua máquina, recompile:*
