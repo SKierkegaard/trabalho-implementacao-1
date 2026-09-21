@@ -14,7 +14,7 @@ int main() {
 
     Cofo *cofo = cofoCreate(capacity);
     if (cofo == NULL) {
-        printf("Não foi possível criar o Cofo!");
+        printf("Não foi possível criar o Cofo!\n");
         return 1;
     }
 

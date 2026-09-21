@@ -23,7 +23,7 @@ gcc -o ./build/main main.c cofo.c
 ## Arquivos fonte
 
 - cofo.h: Contém todas as declarações de dados, constantes, funções e estruturas  usadas por main.c.
-- cofo.c: Contém os códigos das funções e estruturas usasas por main.c.
+- cofo.c: Contém os códigos das funções e estruturas usadas por main.c.
 - main.c: Menu que permite criar, inserir, remover, consultar e destruir um cofo.
 
 ## Execução do programa
