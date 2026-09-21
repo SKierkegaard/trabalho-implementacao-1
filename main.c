@@ -26,9 +26,8 @@ int main() {
         printf("\n#------- Menu Cofo -------#\n");
         printf("| 1 - Inserir valor       |\n");
         printf("| 2 - Remover valor       |\n");
-        printf("| 3 - Esvaziar Cofo       |\n");
-        printf("| 4 - Consultar valor     |\n");
-        printf("| 5 - Destruir Cofo(Sair) |\n");
+        printf("| 3 - Consultar valor     |\n");
+        printf("| 4 - Destruir Cofo(Sair) |\n");
         printf("#-------------------------#\n");
         printf("> ");
 
@@ -65,14 +64,6 @@ int main() {
                 break;
 
             case 3:
-                if (cofoClear(cofo)) {
-                    printf("\nCofo esvaziado com sucesso!\n");
-                } else {
-                    printf("\nNão foi possível esvaziar o Cofo\n");
-                }
-                break;
-
-            case 4:
                 printf("\nDigite o valor a consultar: ");
                 scanf("%d", &value);
                 cleanBuffer();
@@ -84,7 +75,7 @@ int main() {
                 }
                 break;
 
-            case 5:
+            case 4:
                 if (cofoDestroy(cofo)) {
                     printf("\nCofo destruído com sucesso!\n");
                     cofo = NULL;

@@ -10,6 +10,5 @@ int cofoInsert(Cofo *cofo, int value);
 int cofoRemove(Cofo *cofo, int value);
 int cofoConsult(Cofo *cofo, int value);
 int cofoDestroy(Cofo *cofo);
-int cofoClear(Cofo *cofo);
 
 #endif

@@ -16,34 +16,34 @@ O Cofo é um TAD (Tipo Abstrato de Dados) que representa um "cofre" de números 
 Caso o executável não rode no ambiente de correção, recompile com:
 
 ```bash
-gcc -o ./build/apl apl.c cofo.c
-./build/apl
+gcc -o ./build/main main.c cofo.c
+./build/main
 ```
 
 ## Arquivos fonte
 
-- cofo.h: Contém todas as declarações de dados, constantes, funções e estruturas  usadas por apl.c.
-- cofo.c: Contém os códigos das funções e estruturas usasas por apl.c.
-- apl.c: Menu que permite criar, inserir, remover, consultar e destruir um cofo.
+- cofo.h: Contém todas as declarações de dados, constantes, funções e estruturas  usadas por main.c.
+- cofo.c: Contém os códigos das funções e estruturas usasas por main.c.
+- main.c: Menu que permite criar, inserir, remover, consultar e destruir um cofo.
 
 ## Execução do programa
 
 - Terminal:
 ```bash
-./build/apl
+./build/main
 ```
 
 > *Caso não rode na sua máquina, recompile:*
 ```bash
-gcc -o ./build/apl apl.c cofo.c
+gcc -o ./build/main main.c cofo.c
 ```
 
 - VSCode:
 1. Abra a pasta do projeto no VSCode (File > Open Folder).
-2. Ctrl+Shift+B - roda a task de build (compila apl.c + cofo.c).
+2. Ctrl+Shift+B - roda a task de build (compila main.c + cofo.c).
 3. Abra o terminal integrado (Ctrl+`) e rode:
 ```bash
-./build/apl
+./build/main
 ```
 
 *O trabalho está disponível no meu github:* [trabalho-implementacao-1](https://github.com/SKierkegaard/trabalho-implementacao-1)

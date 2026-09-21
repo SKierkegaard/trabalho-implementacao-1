@@ -87,13 +87,3 @@ int cofoDestroy(Cofo *cofo) {
 
     return FALSE;
 }
-
-int cofoClear(Cofo *cofo) {
-    if (cofo != NULL) {
-        cofo->length = 0;
-
-        return TRUE;
-    }
-
-    return FALSE;
-}
