@@ -35,11 +35,11 @@ int cofoInsert(Cofo *cofo, int value) {
             cofo->list[cofo->length] = value;
             cofo->length++;
 
-            return 1;
+            return TRUE;
         }
     }
 
-    return 0;
+    return FALSE;
 }
 
 int cofoRemove(Cofo *cofo, int value) {
@@ -52,13 +52,13 @@ int cofoRemove(Cofo *cofo, int value) {
                     }
 
                     cofo->length--;
-                    return 1;
+                    return TRUE;
                 }
             }
         }
     }
 
-    return 0;
+    return FALSE;
 }
 
 int cofoConsult(Cofo *cofo, int value) {
@@ -66,13 +66,13 @@ int cofoConsult(Cofo *cofo, int value) {
         if (cofo->list != NULL) {
             for (int i = 0; i < cofo->length; i++) {
                 if (cofo->list[i] == value) {
-                    return 1;
+                    return TRUE;
                 }
             }
         }
     }
 
-    return 0;
+    return FALSE;
 }
 
 int cofoDestroy(Cofo *cofo) {
@@ -81,9 +81,9 @@ int cofoDestroy(Cofo *cofo) {
             free(cofo->list);
             free(cofo);
 
-            return 1;
+            return TRUE;
         }
     }
 
-    return 0;
+    return FALSE;
 }
