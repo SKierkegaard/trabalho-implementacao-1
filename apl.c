@@ -27,11 +27,11 @@ int main() {
         printf("1 - Inserir valor\n");
         printf("2 - Remover valor\n");
         printf("3 - Consultar valor\n");
-        printf("4 - Destuir Cofo(Sair)\n");
+        printf("4 - Destruir Cofo(Sair)\n");
         printf("> ");
 
         if (scanf("%d", &option) != 1) {
-            printf("Entrada inválida.");
+            printf("Entrada inválida.\n");
             cleanBuffer();
             continue;
         }
@@ -80,7 +80,7 @@ int main() {
                     cofo = NULL;
                     running = 0;
                 } else {
-                    printf("Não foi possível destruir o Cofo! O Cofo não está vazio ou já foi destuído.\n");
+                    printf("Não foi possível destruir o Cofo! O Cofo não está vazio.\n");
                 }
                 break;
 
